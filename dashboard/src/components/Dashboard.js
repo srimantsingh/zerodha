@@ -9,10 +9,15 @@ import Orders from "./Orders";
 import Positions from "./Positions";
 import Summary from "./Summary";
 import WatchList from "./WatchList";
+import GeneralContextProvider from "./GeneralContextProvider"; // ✅
+
 
 const Dashboard = () => {
   return (
     <div className="dashboard-container">
+     <GeneralContextProvider>
+      <WatchList /> {/* or your main content */}
+    </GeneralContextProvider>
       
         <WatchList />
      
@@ -24,6 +29,7 @@ const Dashboard = () => {
           <Route path="/positions" element={<Positions />} />
           <Route path="/funds" element={<Funds />} />
           <Route path="/apps" element={<Apps />} />
+
         </Routes>
       </div>
     </div>
